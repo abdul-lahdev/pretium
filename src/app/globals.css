@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "MyFont";
+  src: url("/font/AlbertSans.ttf") format("woff2-variations");
+  font-weight: 100 900;     /* full range */
+  font-style: normal;
+  font-display: swap;
+}
+
+*{
+  font-family: 'MyFont', sans-serif !important;
+}
+:root {
+      --dark1:#0A140D;
+      --dark2:#3C3D3C;
+      --dark3:#757575;
+      --dark4:#1B1B1B;
+      --dark5:#4E5157;
+      --grey1:#EDF0EE;
+      --purple1:#7026A1;
+      --purple2:#F9ECFE;
+}
+
+.btn-secondary{
+    height: 51px;
+    border-radius: 10px;
+    padding: 12px;
+    color: #0A140D;
+    font-size: 16px;
+    font-weight: 500;
+    &:hover{
+background-color: rgb(199 199 199);
+    }
+}
+
+.btn-primary{
+    background: linear-gradient(316.2deg, #7026A1 -0.4%, #DE4385 101.02%),
+linear-gradient(0deg, rgba(112, 38, 161, 0.5), rgba(112, 38, 161, 0.5));
+    height: 51px;
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    min-width: 88px;
+    color: white;
+
+    &:hover{
+        background: linear-gradient(30deg, #7026A1 -0.4%, #DE4385 101.02%),
+              linear-gradient(0deg, rgba(112, 38, 161, 0.5), rgba(112, 38, 161, 0.5));
+    }
+}
