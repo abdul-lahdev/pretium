@@ -5,6 +5,7 @@ import FeatureStep from '@/components/features/feature-step'
 import ImpactfullDifference from '@/components/features/impactful-difference'
 import Tools from '@/components/features/tools'
 import Pricing from '@/components/features/pricing'
+import FaqSection from '@/components/features/faq-section'
 
 export default function Feature() {
     return (
@@ -15,6 +16,7 @@ export default function Feature() {
             <ImpactfullDifference />
             <Tools />
             <Pricing />
+            <FaqSection />
         </>
     )
 }
