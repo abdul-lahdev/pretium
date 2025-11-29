@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 export default function Tools() {
     return (
-        <section className="pt-32 bg-[var(--purple2)]">
+        <section className="py-16 bg-[var(--purple2)]">
 
             <div className="mx-auto">
                 <div className="lg:w-[70%] md:w-full mx-auto px-3 py-10 rounded-[16px]">

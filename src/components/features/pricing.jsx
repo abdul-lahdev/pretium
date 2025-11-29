@@ -1,0 +1,190 @@
+"use client";
+import { useState } from "react";
+import { Card, CardBody } from "@material-tailwind/react";
+import { CheckIcon } from "@heroicons/react/24/solid";
+
+export default function Pricing() {
+    const [billing, setBilling] = useState("monthly");
+
+    const multiply = billing === "yearly" ? 0.75 : 1; // yearly = 25% OFF
+
+    return (
+
+        <>
+            <div className="w-full py-20 bg-white flex flex-col items-center">
+
+                <div className="mx-auto">
+                    <div className="w-full mx-auto px-3 py-10 rounded-[16px]">
+                    <h1 className="text-[var(--dark4)] text-[56px]/[64px] font-semibold mb-12">
+                    Honest pricing for real growth
+                </h1>
+
+                {/* Billing Toggle */}
+                <div className="flex w-max mx-auto items-center gap-3 bg-white px-3 py-2 rounded-[40px] border border-[#ECF5FE] shadow mb-10">
+                    <button
+                        onClick={() => setBilling("monthly")}
+                        className={`px-4 py-2 rounded-[32px] border font-medium text-[16px] ${billing === "monthly" ? " border-[#0909151A] bg-[var(--dark4)] text-white" : "border-[#0909151A] bg-[#0909150D] text-[var(--dark4)]"
+                            }`}
+                    >
+                        Monthly
+                    </button>
+                    <button
+                        onClick={() => setBilling("yearly")}
+                        className={`px-4 py-2 rounded-[32px] border font-medium text-[16px] flex items-center gap-1 ${billing === "yearly" ? "border-[#0909151A] bg-[var(--dark4)] text-white" : "border-[#0909151A] bg-[#0909150D] text-[var(--dark4)]"
+                            }`}
+                    >
+                        Yearly <span className='font-bold text-[12px]/[16px] bg-[var(--purple1)] rounded-[24px] text-white px-2 py-1'>Save 25%</span>
+                    </button>
+                </div>
+
+                {/* Pricing Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-6 w-full">
+
+                    {/* Starter */}
+                    <Card className="border border-[#4E515733] p-5 rounded-2xl shadow-none">
+                        <CardBody>
+                          <div>
+                          <h3 className="text-[24px] font-medium text-[var(--dark4)]">Starter</h3>
+                            <p className="text-[48px]/[57px] font-semibold text-[var(--dark4)]">
+                                ${59 * multiply}
+                                <span className="text-[16px]/[27px] font-normal text-[var(--dark5)]">/month</span>
+                            </p>
+                          </div>
+
+                            <h4 className="mt-6 mb-3 text-[var(--dark4)] text-[18px]/[32px] font-medium">Access to :</h4>
+                            <ul className="flex flex-col gap-2">
+                                <li className="flex items-start gap-3">
+                                    <span>
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <g clipPath="url(#clip0_121_5406)"> <g clipPath="url(#clip1_121_5406)"> <path fillRule="evenodd" clipRule="evenodd" d="M8.62514 3.85197C8.98621 3.28387 9.48483 2.81612 10.0748 2.49204C10.6648 2.16796 11.327 1.99805 12.0001 1.99805C12.6733 1.99805 13.3355 2.16796 13.9255 2.49204C14.5155 2.81612 15.0141 3.28387 15.3751 3.85197C16.032 3.70603 16.7151 3.72832 17.361 3.91677C18.0069 4.10522 18.5948 4.45372 19.0701 4.92996C19.5464 5.40549 19.8948 5.9936 20.0831 6.63972C20.2713 7.28584 20.2934 7.96905 20.1471 8.62597C20.7151 8.987 21.1827 9.48551 21.5067 10.0753C21.8307 10.6652 22.0007 11.3272 22.0008 12.0002C22.0009 12.6732 21.8311 13.3353 21.5073 13.9252C21.1834 14.5151 20.716 15.0138 20.1481 15.375C20.2944 16.0319 20.2723 16.7151 20.0841 17.3612C19.8958 18.0073 19.5474 18.5954 19.0711 19.071C18.5956 19.5472 18.0075 19.8956 17.3614 20.0839C16.7153 20.2722 16.0321 20.2942 15.3751 20.148C15.0141 20.7161 14.5155 21.1838 13.9255 21.5079C13.3355 21.832 12.6733 22.0019 12.0001 22.0019C11.327 22.0019 10.6648 21.832 10.0748 21.5079C9.48483 21.1838 8.98621 20.7161 8.62514 20.148C7.9683 20.2939 7.28523 20.2716 6.6393 20.0832C5.99336 19.8947 5.40547 19.5462 4.93014 19.07C4.45391 18.5944 4.1055 18.0063 3.91722 17.3602C3.72894 16.7141 3.7069 16.0309 3.85314 15.374C3.28522 15.0129 2.81758 14.5144 2.49356 13.9246C2.16954 13.3348 1.99961 12.6727 1.99951 11.9997C1.99941 11.3268 2.16915 10.6647 2.49299 10.0747C2.81684 9.48482 3.28432 8.98616 3.85214 8.62496C3.70621 7.96812 3.7285 7.28506 3.91695 6.63912C4.10539 5.99318 4.4539 5.40529 4.93014 4.92996C5.40567 4.45374 5.99378 4.10532 6.6399 3.91704C7.28602 3.72877 7.96923 3.70672 8.62614 3.85297L8.62514 3.85197ZM9.70714 11.292L8.29314 12.707L11.1211 15.535L16.0711 10.585L14.6571 9.17096L11.1211 12.707L9.70714 11.293V11.292Z" fill="#7026A1"/> </g> </g> <defs> <clipPath id="clip0_121_5406"> <rect width="24" height="24" fill="white"/> </clipPath> <clipPath id="clip1_121_5406"> <rect width="24" height="24" fill="white"/> </clipPath> </defs> </svg>
+                                    </span>
+                                    <span className="text-[var(--dark5)] text-[14px]/[22px] font-normal">Flexible user access & customizable</span>
+                                </li>
+                                <li className="flex items-start gap-3">
+                                    <span>
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <g clipPath="url(#clip0_121_5406)"> <g clipPath="url(#clip1_121_5406)"> <path fillRule="evenodd" clipRule="evenodd" d="M8.62514 3.85197C8.98621 3.28387 9.48483 2.81612 10.0748 2.49204C10.6648 2.16796 11.327 1.99805 12.0001 1.99805C12.6733 1.99805 13.3355 2.16796 13.9255 2.49204C14.5155 2.81612 15.0141 3.28387 15.3751 3.85197C16.032 3.70603 16.7151 3.72832 17.361 3.91677C18.0069 4.10522 18.5948 4.45372 19.0701 4.92996C19.5464 5.40549 19.8948 5.9936 20.0831 6.63972C20.2713 7.28584 20.2934 7.96905 20.1471 8.62597C20.7151 8.987 21.1827 9.48551 21.5067 10.0753C21.8307 10.6652 22.0007 11.3272 22.0008 12.0002C22.0009 12.6732 21.8311 13.3353 21.5073 13.9252C21.1834 14.5151 20.716 15.0138 20.1481 15.375C20.2944 16.0319 20.2723 16.7151 20.0841 17.3612C19.8958 18.0073 19.5474 18.5954 19.0711 19.071C18.5956 19.5472 18.0075 19.8956 17.3614 20.0839C16.7153 20.2722 16.0321 20.2942 15.3751 20.148C15.0141 20.7161 14.5155 21.1838 13.9255 21.5079C13.3355 21.832 12.6733 22.0019 12.0001 22.0019C11.327 22.0019 10.6648 21.832 10.0748 21.5079C9.48483 21.1838 8.98621 20.7161 8.62514 20.148C7.9683 20.2939 7.28523 20.2716 6.6393 20.0832C5.99336 19.8947 5.40547 19.5462 4.93014 19.07C4.45391 18.5944 4.1055 18.0063 3.91722 17.3602C3.72894 16.7141 3.7069 16.0309 3.85314 15.374C3.28522 15.0129 2.81758 14.5144 2.49356 13.9246C2.16954 13.3348 1.99961 12.6727 1.99951 11.9997C1.99941 11.3268 2.16915 10.6647 2.49299 10.0747C2.81684 9.48482 3.28432 8.98616 3.85214 8.62496C3.70621 7.96812 3.7285 7.28506 3.91695 6.63912C4.10539 5.99318 4.4539 5.40529 4.93014 4.92996C5.40567 4.45374 5.99378 4.10532 6.6399 3.91704C7.28602 3.72877 7.96923 3.70672 8.62614 3.85297L8.62514 3.85197ZM9.70714 11.292L8.29314 12.707L11.1211 15.535L16.0711 10.585L14.6571 9.17096L11.1211 12.707L9.70714 11.293V11.292Z" fill="#7026A1"/> </g> </g> <defs> <clipPath id="clip0_121_5406"> <rect width="24" height="24" fill="white"/> </clipPath> <clipPath id="clip1_121_5406"> <rect width="24" height="24" fill="white"/> </clipPath> </defs> </svg>
+                                    </span>
+                                    <span className="text-[var(--dark5)] text-[14px]/[22px] font-normal">Comprehensive patient management</span>
+                                </li>
+                                <li className="flex items-start gap-3">
+                                    <span>
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <g clipPath="url(#clip0_121_5406)"> <g clipPath="url(#clip1_121_5406)"> <path fillRule="evenodd" clipRule="evenodd" d="M8.62514 3.85197C8.98621 3.28387 9.48483 2.81612 10.0748 2.49204C10.6648 2.16796 11.327 1.99805 12.0001 1.99805C12.6733 1.99805 13.3355 2.16796 13.9255 2.49204C14.5155 2.81612 15.0141 3.28387 15.3751 3.85197C16.032 3.70603 16.7151 3.72832 17.361 3.91677C18.0069 4.10522 18.5948 4.45372 19.0701 4.92996C19.5464 5.40549 19.8948 5.9936 20.0831 6.63972C20.2713 7.28584 20.2934 7.96905 20.1471 8.62597C20.7151 8.987 21.1827 9.48551 21.5067 10.0753C21.8307 10.6652 22.0007 11.3272 22.0008 12.0002C22.0009 12.6732 21.8311 13.3353 21.5073 13.9252C21.1834 14.5151 20.716 15.0138 20.1481 15.375C20.2944 16.0319 20.2723 16.7151 20.0841 17.3612C19.8958 18.0073 19.5474 18.5954 19.0711 19.071C18.5956 19.5472 18.0075 19.8956 17.3614 20.0839C16.7153 20.2722 16.0321 20.2942 15.3751 20.148C15.0141 20.7161 14.5155 21.1838 13.9255 21.5079C13.3355 21.832 12.6733 22.0019 12.0001 22.0019C11.327 22.0019 10.6648 21.832 10.0748 21.5079C9.48483 21.1838 8.98621 20.7161 8.62514 20.148C7.9683 20.2939 7.28523 20.2716 6.6393 20.0832C5.99336 19.8947 5.40547 19.5462 4.93014 19.07C4.45391 18.5944 4.1055 18.0063 3.91722 17.3602C3.72894 16.7141 3.7069 16.0309 3.85314 15.374C3.28522 15.0129 2.81758 14.5144 2.49356 13.9246C2.16954 13.3348 1.99961 12.6727 1.99951 11.9997C1.99941 11.3268 2.16915 10.6647 2.49299 10.0747C2.81684 9.48482 3.28432 8.98616 3.85214 8.62496C3.70621 7.96812 3.7285 7.28506 3.91695 6.63912C4.10539 5.99318 4.4539 5.40529 4.93014 4.92996C5.40567 4.45374 5.99378 4.10532 6.6399 3.91704C7.28602 3.72877 7.96923 3.70672 8.62614 3.85297L8.62514 3.85197ZM9.70714 11.292L8.29314 12.707L11.1211 15.535L16.0711 10.585L14.6571 9.17096L11.1211 12.707L9.70714 11.293V11.292Z" fill="#7026A1"/> </g> </g> <defs> <clipPath id="clip0_121_5406"> <rect width="24" height="24" fill="white"/> </clipPath> <clipPath id="clip1_121_5406"> <rect width="24" height="24" fill="white"/> </clipPath> </defs> </svg>
+                                    </span>
+                                    <span className="text-[var(--dark5)] text-[14px]/[22px] font-normal">Streamlined appointment management</span>
+                                </li>
+                                <li className="flex items-start gap-3">
+                                    <span>
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <g clipPath="url(#clip0_121_5406)"> <g clipPath="url(#clip1_121_5406)"> <path fillRule="evenodd" clipRule="evenodd" d="M8.62514 3.85197C8.98621 3.28387 9.48483 2.81612 10.0748 2.49204C10.6648 2.16796 11.327 1.99805 12.0001 1.99805C12.6733 1.99805 13.3355 2.16796 13.9255 2.49204C14.5155 2.81612 15.0141 3.28387 15.3751 3.85197C16.032 3.70603 16.7151 3.72832 17.361 3.91677C18.0069 4.10522 18.5948 4.45372 19.0701 4.92996C19.5464 5.40549 19.8948 5.9936 20.0831 6.63972C20.2713 7.28584 20.2934 7.96905 20.1471 8.62597C20.7151 8.987 21.1827 9.48551 21.5067 10.0753C21.8307 10.6652 22.0007 11.3272 22.0008 12.0002C22.0009 12.6732 21.8311 13.3353 21.5073 13.9252C21.1834 14.5151 20.716 15.0138 20.1481 15.375C20.2944 16.0319 20.2723 16.7151 20.0841 17.3612C19.8958 18.0073 19.5474 18.5954 19.0711 19.071C18.5956 19.5472 18.0075 19.8956 17.3614 20.0839C16.7153 20.2722 16.0321 20.2942 15.3751 20.148C15.0141 20.7161 14.5155 21.1838 13.9255 21.5079C13.3355 21.832 12.6733 22.0019 12.0001 22.0019C11.327 22.0019 10.6648 21.832 10.0748 21.5079C9.48483 21.1838 8.98621 20.7161 8.62514 20.148C7.9683 20.2939 7.28523 20.2716 6.6393 20.0832C5.99336 19.8947 5.40547 19.5462 4.93014 19.07C4.45391 18.5944 4.1055 18.0063 3.91722 17.3602C3.72894 16.7141 3.7069 16.0309 3.85314 15.374C3.28522 15.0129 2.81758 14.5144 2.49356 13.9246C2.16954 13.3348 1.99961 12.6727 1.99951 11.9997C1.99941 11.3268 2.16915 10.6647 2.49299 10.0747C2.81684 9.48482 3.28432 8.98616 3.85214 8.62496C3.70621 7.96812 3.7285 7.28506 3.91695 6.63912C4.10539 5.99318 4.4539 5.40529 4.93014 4.92996C5.40567 4.45374 5.99378 4.10532 6.6399 3.91704C7.28602 3.72877 7.96923 3.70672 8.62614 3.85297L8.62514 3.85197ZM9.70714 11.292L8.29314 12.707L11.1211 15.535L16.0711 10.585L14.6571 9.17096L11.1211 12.707L9.70714 11.293V11.292Z" fill="#7026A1"/> </g> </g> <defs> <clipPath id="clip0_121_5406"> <rect width="24" height="24" fill="white"/> </clipPath> <clipPath id="clip1_121_5406"> <rect width="24" height="24" fill="white"/> </clipPath> </defs> </svg>
+                                    </span>
+                                    <span className="text-[var(--dark5)] text-[14px]/[22px] font-normal">Encrypted communication channels</span>
+                                </li>
+                            </ul>
+
+                            <h4 className="mt-6 mb-3 text-[var(--dark4)] text-[18px]/[32px] font-medium">Includes :</h4>
+                            <ul className="flex flex-col gap-2">
+                         
+                                <li className="flex items-start gap-3">
+                                    <span>
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <g clipPath="url(#clip0_121_5406)"> <g clipPath="url(#clip1_121_5406)"> <path fillRule="evenodd" clipRule="evenodd" d="M8.62514 3.85197C8.98621 3.28387 9.48483 2.81612 10.0748 2.49204C10.6648 2.16796 11.327 1.99805 12.0001 1.99805C12.6733 1.99805 13.3355 2.16796 13.9255 2.49204C14.5155 2.81612 15.0141 3.28387 15.3751 3.85197C16.032 3.70603 16.7151 3.72832 17.361 3.91677C18.0069 4.10522 18.5948 4.45372 19.0701 4.92996C19.5464 5.40549 19.8948 5.9936 20.0831 6.63972C20.2713 7.28584 20.2934 7.96905 20.1471 8.62597C20.7151 8.987 21.1827 9.48551 21.5067 10.0753C21.8307 10.6652 22.0007 11.3272 22.0008 12.0002C22.0009 12.6732 21.8311 13.3353 21.5073 13.9252C21.1834 14.5151 20.716 15.0138 20.1481 15.375C20.2944 16.0319 20.2723 16.7151 20.0841 17.3612C19.8958 18.0073 19.5474 18.5954 19.0711 19.071C18.5956 19.5472 18.0075 19.8956 17.3614 20.0839C16.7153 20.2722 16.0321 20.2942 15.3751 20.148C15.0141 20.7161 14.5155 21.1838 13.9255 21.5079C13.3355 21.832 12.6733 22.0019 12.0001 22.0019C11.327 22.0019 10.6648 21.832 10.0748 21.5079C9.48483 21.1838 8.98621 20.7161 8.62514 20.148C7.9683 20.2939 7.28523 20.2716 6.6393 20.0832C5.99336 19.8947 5.40547 19.5462 4.93014 19.07C4.45391 18.5944 4.1055 18.0063 3.91722 17.3602C3.72894 16.7141 3.7069 16.0309 3.85314 15.374C3.28522 15.0129 2.81758 14.5144 2.49356 13.9246C2.16954 13.3348 1.99961 12.6727 1.99951 11.9997C1.99941 11.3268 2.16915 10.6647 2.49299 10.0747C2.81684 9.48482 3.28432 8.98616 3.85214 8.62496C3.70621 7.96812 3.7285 7.28506 3.91695 6.63912C4.10539 5.99318 4.4539 5.40529 4.93014 4.92996C5.40567 4.45374 5.99378 4.10532 6.6399 3.91704C7.28602 3.72877 7.96923 3.70672 8.62614 3.85297L8.62514 3.85197ZM9.70714 11.292L8.29314 12.707L11.1211 15.535L16.0711 10.585L14.6571 9.17096L11.1211 12.707L9.70714 11.293V11.292Z" fill="#7026A1"/> </g> </g> <defs> <clipPath id="clip0_121_5406"> <rect width="24" height="24" fill="white"/> </clipPath> <clipPath id="clip1_121_5406"> <rect width="24" height="24" fill="white"/> </clipPath> </defs> </svg>
+                                    </span>
+                                    <span className="text-[var(--dark5)] text-[14px]/[22px] font-normal">Dynamic user access & management</span>
+                                </li>
+                                <li className="flex items-start gap-3">
+                                    <span>
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <g clipPath="url(#clip0_121_5406)"> <g clipPath="url(#clip1_121_5406)"> <path fillRule="evenodd" clipRule="evenodd" d="M8.62514 3.85197C8.98621 3.28387 9.48483 2.81612 10.0748 2.49204C10.6648 2.16796 11.327 1.99805 12.0001 1.99805C12.6733 1.99805 13.3355 2.16796 13.9255 2.49204C14.5155 2.81612 15.0141 3.28387 15.3751 3.85197C16.032 3.70603 16.7151 3.72832 17.361 3.91677C18.0069 4.10522 18.5948 4.45372 19.0701 4.92996C19.5464 5.40549 19.8948 5.9936 20.0831 6.63972C20.2713 7.28584 20.2934 7.96905 20.1471 8.62597C20.7151 8.987 21.1827 9.48551 21.5067 10.0753C21.8307 10.6652 22.0007 11.3272 22.0008 12.0002C22.0009 12.6732 21.8311 13.3353 21.5073 13.9252C21.1834 14.5151 20.716 15.0138 20.1481 15.375C20.2944 16.0319 20.2723 16.7151 20.0841 17.3612C19.8958 18.0073 19.5474 18.5954 19.0711 19.071C18.5956 19.5472 18.0075 19.8956 17.3614 20.0839C16.7153 20.2722 16.0321 20.2942 15.3751 20.148C15.0141 20.7161 14.5155 21.1838 13.9255 21.5079C13.3355 21.832 12.6733 22.0019 12.0001 22.0019C11.327 22.0019 10.6648 21.832 10.0748 21.5079C9.48483 21.1838 8.98621 20.7161 8.62514 20.148C7.9683 20.2939 7.28523 20.2716 6.6393 20.0832C5.99336 19.8947 5.40547 19.5462 4.93014 19.07C4.45391 18.5944 4.1055 18.0063 3.91722 17.3602C3.72894 16.7141 3.7069 16.0309 3.85314 15.374C3.28522 15.0129 2.81758 14.5144 2.49356 13.9246C2.16954 13.3348 1.99961 12.6727 1.99951 11.9997C1.99941 11.3268 2.16915 10.6647 2.49299 10.0747C2.81684 9.48482 3.28432 8.98616 3.85214 8.62496C3.70621 7.96812 3.7285 7.28506 3.91695 6.63912C4.10539 5.99318 4.4539 5.40529 4.93014 4.92996C5.40567 4.45374 5.99378 4.10532 6.6399 3.91704C7.28602 3.72877 7.96923 3.70672 8.62614 3.85297L8.62514 3.85197ZM9.70714 11.292L8.29314 12.707L11.1211 15.535L16.0711 10.585L14.6571 9.17096L11.1211 12.707L9.70714 11.293V11.292Z" fill="#7026A1"/> </g> </g> <defs> <clipPath id="clip0_121_5406"> <rect width="24" height="24" fill="white"/> </clipPath> <clipPath id="clip1_121_5406"> <rect width="24" height="24" fill="white"/> </clipPath> </defs> </svg>
+                                    </span>
+                                    <span className="text-[var(--dark5)] text-[14px]/[22px] font-normal">Integrated health record system (IHRS)</span>
+                                </li>
+                                <li className="flex items-start gap-3">
+                                    <span>
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <g clipPath="url(#clip0_121_5406)"> <g clipPath="url(#clip1_121_5406)"> <path fillRule="evenodd" clipRule="evenodd" d="M8.62514 3.85197C8.98621 3.28387 9.48483 2.81612 10.0748 2.49204C10.6648 2.16796 11.327 1.99805 12.0001 1.99805C12.6733 1.99805 13.3355 2.16796 13.9255 2.49204C14.5155 2.81612 15.0141 3.28387 15.3751 3.85197C16.032 3.70603 16.7151 3.72832 17.361 3.91677C18.0069 4.10522 18.5948 4.45372 19.0701 4.92996C19.5464 5.40549 19.8948 5.9936 20.0831 6.63972C20.2713 7.28584 20.2934 7.96905 20.1471 8.62597C20.7151 8.987 21.1827 9.48551 21.5067 10.0753C21.8307 10.6652 22.0007 11.3272 22.0008 12.0002C22.0009 12.6732 21.8311 13.3353 21.5073 13.9252C21.1834 14.5151 20.716 15.0138 20.1481 15.375C20.2944 16.0319 20.2723 16.7151 20.0841 17.3612C19.8958 18.0073 19.5474 18.5954 19.0711 19.071C18.5956 19.5472 18.0075 19.8956 17.3614 20.0839C16.7153 20.2722 16.0321 20.2942 15.3751 20.148C15.0141 20.7161 14.5155 21.1838 13.9255 21.5079C13.3355 21.832 12.6733 22.0019 12.0001 22.0019C11.327 22.0019 10.6648 21.832 10.0748 21.5079C9.48483 21.1838 8.98621 20.7161 8.62514 20.148C7.9683 20.2939 7.28523 20.2716 6.6393 20.0832C5.99336 19.8947 5.40547 19.5462 4.93014 19.07C4.45391 18.5944 4.1055 18.0063 3.91722 17.3602C3.72894 16.7141 3.7069 16.0309 3.85314 15.374C3.28522 15.0129 2.81758 14.5144 2.49356 13.9246C2.16954 13.3348 1.99961 12.6727 1.99951 11.9997C1.99941 11.3268 2.16915 10.6647 2.49299 10.0747C2.81684 9.48482 3.28432 8.98616 3.85214 8.62496C3.70621 7.96812 3.7285 7.28506 3.91695 6.63912C4.10539 5.99318 4.4539 5.40529 4.93014 4.92996C5.40567 4.45374 5.99378 4.10532 6.6399 3.91704C7.28602 3.72877 7.96923 3.70672 8.62614 3.85297L8.62514 3.85197ZM9.70714 11.292L8.29314 12.707L11.1211 15.535L16.0711 10.585L14.6571 9.17096L11.1211 12.707L9.70714 11.293V11.292Z" fill="#7026A1"/> </g> </g> <defs> <clipPath id="clip0_121_5406"> <rect width="24" height="24" fill="white"/> </clipPath> <clipPath id="clip1_121_5406"> <rect width="24" height="24" fill="white"/> </clipPath> </defs> </svg>
+                                    </span>
+                                    <span className="text-[var(--dark5)] text-[14px]/[22px] font-normal">Effortless scheduling solutions</span>
+                                </li>
+                            </ul>
+
+                            <button className="w-full bg-purple-600 text-white mt-8 py-3 rounded-full font-semibold">
+                                Start Free Trial
+                            </button>
+                        </CardBody>
+                    </Card>
+
+                    {/* Growth */}
+                    <Card className="p-5 rounded-2xl bg-purple-600 text-white">
+                        <CardBody>
+                            <h3 className="text-xl font-semibold">Growth</h3>
+                            <p className="text-4xl font-bold mt-3">
+                                ${69 * multiply}
+                                <span className="text-base text-purple-200">/month</span>
+                            </p>
+
+                            <h4 className="mt-6 mb-3 font-semibold">Everything in Starter, plus:</h4>
+                            <FeatureWhite label="Scalable user access & admin privileges" />
+                            <FeatureWhite label="Holistic health record management" />
+                            <FeatureWhite label="Optimized appointment booking" />
+                            <FeatureWhite label="Confidential messaging platform" />
+
+                            <h4 className="mt-6 mb-3 font-semibold">Access to :</h4>
+                            <FeatureWhite label="Unlimited user profiles & admin settings" />
+                            <FeatureWhite label="Advanced electronic health" />
+                            <FeatureWhite label="Smart appointment coordination" />
+
+                            <button className="w-full bg-white text-purple-700 mt-8 py-3 rounded-full font-semibold">
+                                Start Free Trial
+                            </button>
+                        </CardBody>
+                    </Card>
+
+                    {/* Pro */}
+                    <Card className="border p-5 rounded-2xl shadow-none">
+                        <CardBody>
+                           <div>
+                           <h3 className="text-[24px] font-medium text-[var(--dark4)]">Pro</h3>
+                            <p className="text-[48px]/[57px] font-semibold text-[var(--dark4)]">
+                                ${79 * multiply}
+                                <span className="text-base text-gray-500">/month</span>
+                            </p>
+                           </div>
+
+                            <h4 className="mt-6 mb-3 font-semibold text-gray-800">Everything in Growth, plus:</h4>
+                            <Feature label="Limitless user roles & administrative" />
+                            <Feature label="Next-gen electronic health records" />
+                            <Feature label="Intuitive scheduling interface" />
+                            <Feature label="Secure patient messaging system" />
+
+                            <h4 className="mt-6 mb-3 font-semibold text-gray-800">Access to :</h4>
+                            <Feature label="Unlimited user accounts & role" />
+                            <Feature label="Unified health records platform (UHRP)" />
+                            <Feature label="Seamless appointment management" />
+
+                            <button className="w-full bg-purple-600 text-white mt-8 py-3 rounded-full font-semibold">
+                                Start Free Trial
+                            </button>
+                        </CardBody>
+                    </Card>
+
+                </div>
+                    </div>
+                </div>
+
+              
+            </div>
+        </>
+
+    );
+}
+
+/* ------- Feature Components ------- */
+
+const Feature = ({ label }) => (
+    <div className="flex items-center gap-2 my-2">
+        <CheckIcon className="w-5 h-5 text-purple-600" />
+        <p className="text-gray-700 text-sm">{label}</p>
+    </div>
+);
+
+const FeatureWhite = ({ label }) => (
+    <div className="flex items-center gap-2 my-2">
+        <CheckIcon className="w-5 h-5 text-white" />
+        <p className="text-white text-sm">{label}</p>
+    </div>
+);

@@ -34,7 +34,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-, "src/components/students-feedback.jsx", "src/components/trusted-companies.jsx", "src/components/navbar.jsx"  ],
+, "src/components/students-feedback.jsx", "src/components/trusted-companies.jsx", "src/components/navbar.jsx", "src/components/features/pricing.jsx"  ],
   "exclude": [
     "node_modules"
   ]
