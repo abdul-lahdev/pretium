@@ -28,7 +28,7 @@ export function Footer() {
                 <ul className="mt-4 flex flex-col gap-3">
                   <li className="text-white font-normal text-[16px]">
 
-                    <Link href="/">
+                    <Link href="/features">
                       Features
                     </Link>
                   </li>
