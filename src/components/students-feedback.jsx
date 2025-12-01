@@ -47,16 +47,16 @@ provided by licensed mental health professionals.`,
   ];
 
   return (
-    <section className="pb-36 bg-white">
-      <div className="lg:w-[70%] mx-auto px-3 py-10 rounded-[16px]">
-        <h1 className="text-[var(--dark1)] text-[64px]/[73px] font-normal text-center mb-8">
+    <section className="pb-20 lg:pb-36 bg-white">
+      <div className="w-[90%] xl:w-[70%] mx-auto px-0 md:px-3 py-10 rounded-[16px]" data-aos="fade-up">
+        <h1 className="text-[var(--dark1)] text-[38px]/[58px] md:text-[48px]/[71px] lg:text-[64px]/[73px] font-normal text-center mb-8">
           Need Help Now?
-          <span className="block">
+          <span className="inline lg:block">
             We’re Here <span className="text-[var(--purple1)]">24/7</span>
           </span>
         </h1>
 
-        <div className="bg-[var(--grey1)] p-5 rounded-[16px] lg:w-[60%] md:w-full mx-auto mt-16">
+        <div className="bg-[var(--grey1)] p-5 rounded-[16px] w-full xl:w-[60%]  mx-auto mt-16">
           {data.map((item, index) => (
             <Accordion
               key={index}

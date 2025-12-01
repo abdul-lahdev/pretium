@@ -3,14 +3,14 @@ import Image from 'next/image'
 
 function Hero() {
   return (
-    <div className="w-full">
-      <div className="w-full inset-0 ml-auto  pb-32 pt-56 bg-white bg-[linear-gradient(0deg,rgba(255,255,255,1)_0%,rgba(228,214,237,1)_100%)]">
+    <div className="w-full inset-0 ml-auto   pt-56 bg-white bg-[linear-gradient(0deg,rgba(255,255,255,1)_0%,rgba(228,214,237,1)_100%)]">
+      <div className="w-[90%] lg:w-[70%] mx-auto " data-aos="fade-up">
 
 
-        <div className="flex items-end justify-center h-full">
+        <div className="flex items-end justify-center h-full w-full pb-32">
           <div>
-            <h1 className="text-[var(--dark4)] text-[72px]/[88px] font-semibold capitalize textcenter">
-              Next-Gen Software for <span className="block">
+            <h1 className="text-[var(--dark4)] text-[35px]/[58px] md:text-[52px]/[72px] lg:text-[72px]/[88px] font-semibold capitalize text-center">
+              Next-Gen Software for <span className="inline xl:block">
                 Healthcare Efficiency
               </span>
             </h1>
@@ -24,7 +24,7 @@ function Hero() {
         </div>
       </div>
 
-      <div className="w-full flex justify-center">
+      <div className="w-[90%] mx-auto flex justify-center" data-aos="fade-up">
         <Image
           src="/image/Container.jpg"
           width={2000}   // original ratio maintain ka liye large width

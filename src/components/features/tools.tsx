@@ -4,9 +4,9 @@ export default function Tools() {
     return (
         <section className="py-16 bg-[var(--purple2)]">
 
-            <div className="mx-auto">
-                <div className="lg:w-[70%] md:w-full mx-auto px-3 py-10 rounded-[16px]">
-                    <h1 className="text-[var(--dark4)] text-[56px]/[64px] font-semibold text-center">
+            <div className="mx-auto" data-aos="fade-up">
+                <div className="w-[90%] xl:w-[70%]  mx-auto px-0 xl:px-3 py-10 rounded-[16px]">
+                    <h1 className="text-[var(--dark4)] text-[38px]/[44px] md:text-[50px]/[64px] lg:text-[56px]/[64px] font-semibold text-center">
                         Tools that just make sense
                     </h1>
 

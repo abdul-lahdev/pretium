@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
+import useMedia from 'use-media';
 const testimonials = [
     {
         text: "I Never Thought Talking To Someone Would Help This Much. My Therapist Made Space For Me To Feel Heard Without Pressure.",
@@ -24,6 +24,7 @@ const testimonials = [
 ];
 
 export default function TestimonialCarousel() {
+    const isWide = useMedia({ minWidth: '768px' });
     const [index, setIndex] = useState(0);
     const [direction, setDirection] = useState(0);
 
@@ -40,7 +41,7 @@ export default function TestimonialCarousel() {
     };
 
     return (
-        <div className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-2 p-4">
+        <div className="w-full mx-auto grid grid-cols-1 md:grid-cols-2 gap-2 pt-4 p-0 xl:p-4">
 
             {/* LEFT FIXED-HEIGHT CARD */}
             <div className="relative bg-gradient-to-br from-purple-600 to-purple-500 text-white rounded-2xl p-16 overflow-hidden h-[600px] flex items-center">
@@ -74,32 +75,45 @@ export default function TestimonialCarousel() {
                         </motion.div>
                     </AnimatePresence>
                 </div>
+                {
+                    isWide ? null : <button
+                        onClick={nextSlide}
+                        className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full  bg-white/20 hover:bg-white/40 transition"
+                    >
+                        →
+                    </button>
+                }
+
             </div>
 
             {/* RIGHT FIXED-HEIGHT IMAGE */}
-            <div className="relative h-[600px] rounded-2xl overflow-hidden">
 
-                <AnimatePresence initial={false} custom={direction}>
-                    <motion.img
-                        key={index}
-                        src={testimonials[index].image}
-                        className="absolute top-0 left-0 w-full h-full object-cover rounded-2xl"
-                        initial={{ opacity: 0, x: direction === 1 ? 80 : -80 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: direction === 1 ? -80 : 80 }}
-                        transition={{ duration: 0.45, ease: "easeOut" }}
-                    />
-                </AnimatePresence>
+            {
+                isWide ? <div className="relative h-[600px] rounded-2xl overflow-hidden">
 
-                {/* RIGHT BUTTON */}
-                <button
-                    onClick={nextSlide}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-black/40 text-white hover:bg-black/60 transition"
-                >
-                    →
-                </button>
+                    <AnimatePresence initial={false} custom={direction}>
+                        <motion.img
+                            key={index}
+                            src={testimonials[index].image}
+                            className="absolute top-0 left-0 w-full h-full object-cover rounded-2xl"
+                            initial={{ opacity: 0, x: direction === 1 ? 80 : -80 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: direction === 1 ? -80 : 80 }}
+                            transition={{ duration: 0.45, ease: "easeOut" }}
+                        />
+                    </AnimatePresence>
 
-            </div>
+                    {/* RIGHT BUTTON */}
+                    <button
+                        onClick={nextSlide}
+                        className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-black/40 text-white hover:bg-black/60 transition"
+                    >
+                        →
+                    </button>
+
+                </div> : null
+            }
+
         </div>
     );
 }

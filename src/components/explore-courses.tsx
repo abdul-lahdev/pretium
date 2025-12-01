@@ -4,13 +4,13 @@
 
 export function ExploreCourses() {
   return (
-    <section className="py-36 bg-white">
+    <section className="py-20 xl:py-36 bg-white">
       <div className="mx-auto">
-        <div className="lg:w-[70%] md:w-full mx-auto px-3 py-10 rounded-[16px]">
-          <div className="grid grid-cols-2 gap-5">
+        <div className="w-[90%] lg:xl-[70%] mx-auto px-0 xl:px-3 py-10 rounded-[16px]">
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-5" data-aos="fade-up">
             <div>
-              <h1 className="text-black text-[64px]/[73px] font-normal">
-                Making each step <span className="block">of care</span>
+              <h1 className="text-black text-[38px]/[58px] md:text-[48px]/[71px] lg:text-[64px]/[73px] font-normal">
+                Making each step <span className="inline xl:block">of care</span>
                 simple for your health
               </h1>
               <ul className="flex flex-col gap-5 mt-8">
@@ -34,7 +34,7 @@ export function ExploreCourses() {
                 </li>
               </ul>
             </div>
-            <div>
+            <div className="mt-8 xl:mt-0">
               <div className="flex gap-3">
                 <div className="w-[45px] h-[45px] rounded-[3px] shadow-[4px_4px_12px_0_#0000001A] bg-cover bg-center bg-[url(/image/trustImg.png)] rotate-2"></div>
                 <p className="text-black font-normal text-[24px]/[37px]">With years of trusted medical experience,</p>
@@ -57,7 +57,7 @@ export function ExploreCourses() {
                   feels supported.</span>
               </p>
 
-              <div className="bg-[var(--purple1)] rounded-[24px] w-full px-8 py-5 shadow-[0_1px_15px_0_#00000026] flex items-center gap-8 mt-5">
+              <div className="bg-[var(--purple1)] rounded-[24px] w-full px-8 py-5 shadow-[0_1px_15px_0_#00000026] flex flex-col md:flex-row  items-center gap-8 mt-5">
                 <h4 className="text-white font-semibold text-[42px]/[42px]">87%</h4>
                 <p className="text-white font-medium text-[20px]/[26px]">Patients reported faster access & improved
                   satisfaction when using Healthjoy.</p>

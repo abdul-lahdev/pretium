@@ -5,14 +5,14 @@ export default function FeatureStep() {
     return (
         <section className="pt-16 bg-white">
             <div className="mx-auto">
-                <div className="lg:w-[70%] md:w-full mx-auto px-3 py-10 rounded-[16px]">
-                    <h1 className="text-[var(--dark4)] text-[56px]/[64px] font-semibold text-center">
+                <div className="w-[90%] xl:w-[70%]  mx-auto px-0 xl:px-3 py-10 rounded-[16px]">
+                    <h1 className="text-[var(--dark4)] text-[38px]/[44px] md:text-[50px]/[64px] lg:text-[56px]/[64px] font-semibold text-center">
                         Intuitive tools that scale with you
 
                     </h1>
 
-                    <div className='grid grid-cols-3 gap-4 my-12'>
-                        <div className='bg-[var(--purple2)] w-full rounded-[24px] overflow-hidden h-[600px]'>
+                    <div className='grid grid-cols-1 lg:grid-cols-3 gap-4 my-12'>
+                        <div data-aos="fade-right" className='bg-[var(--purple2)] w-full rounded-[24px] overflow-hidden h-[500px] lg:h-[600px]'>
                             <div className='p-8'>
                                 <h2 className='text-[var(--dark5)] font-normal text-[16px]'>
                                     Smart Scheduling
@@ -32,7 +32,7 @@ export default function FeatureStep() {
 
                             </div>
                         </div>
-                        <div className='bg-[var(--purple2)] w-full rounded-[24px] overflow-hidden h-[600px]'>
+                        <div data-aos="fade-up" className='bg-[var(--purple2)] w-full rounded-[24px] overflow-hidden h-[500px] lg:h-[600px]'>
                             <div className='p-8'>
                                 <h2 className='text-[var(--dark5)] font-normal text-[16px]'>
                                     Secure Telehealth
@@ -53,7 +53,7 @@ export default function FeatureStep() {
 
                             </div>
                         </div>
-                        <div className='bg-[var(--purple2)] w-full rounded-[24px] overflow-hidden h-[600px]'>
+                        <div data-aos="fade-left" className='bg-[var(--purple2)] w-full rounded-[24px] overflow-hidden h-[500px] lg:h-[600px]'>
                             <div className='p-8'>
                                 <h2 className='text-[var(--dark5)] font-normal text-[16px]'>
                                     AI-Powered Charting

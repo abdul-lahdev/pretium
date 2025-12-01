@@ -2,10 +2,11 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Button, Card } from "@material-tailwind/react";
+import useMedia from 'use-media';
 
 export default function Events() {
   const [active, setActive] = useState<"personal" | "family">("personal");
+  const isWide = useMedia({ minWidth: '1440px' });
 
   const features = [
     "One request at a time",
@@ -20,13 +21,13 @@ export default function Events() {
     <section className="pb-20 bg-white">
       <div className="mx-auto">
 
-        <div className="lg:w-[70%] md:w-full mx-auto px-3 py-10 rounded-[16px]">
+        <div className="w-[90%] lg:w-[70%]  mx-auto px-0 lg:px-3 py-10 rounded-[16px]" data-aos="fade-up">
 
 
           {/* Top Title */}
-          <h1 className="text-[var(--dark1)] text-[64px]/[73px] font-normal text-center mb-8">
+          <h1 className="text-[var(--dark1)] text-[38px]/[58px] md:text-[48px]/[71px] lg:text-[64px]/[73px] font-normal text-center mb-8">
             Affordable Plans
-            <span className="block"> That Fit <span className="text-[var(--purple1)]">Your Needs</span></span>
+            <span className="inline lg:block"> That Fit <span className="text-[var(--purple1)]"> Your Needs</span></span>
           </h1>
 
           {/* Toggle Buttons */}
@@ -53,22 +54,29 @@ export default function Events() {
           {/* Layout container */}
           <div className="relative flex justify-center mt-16">
             {/* Left Top Image */}
-            <Image
-              src="/image/pricing1.png"
-              alt="group"
-              width={140}
-              height={140}
-              className="absolute left-0 top-0 rounded-lg w-[162px] h-[186px] object-cover"
-            />
+            {
+              isWide ? <Image
+                src="/image/pricing1.png"
+                alt="group"
+                width={140}
+                height={140}
+                className="absolute left-0 top-0 rounded-lg w-[162px] h-[186px] object-cover"
+              /> : null
+            }
+
 
             {/* Left Bottom Image */}
-            <Image
-              src="/image/pricing2.png"
-              alt="group"
-              width={140}
-              height={140}
-              className="absolute left-0 translate-x-12 bottom-0 rounded-lg w-[160px] h-[163px] object-cover"
-            />
+
+            {
+              isWide ? <Image
+                src="/image/pricing2.png"
+                alt="group"
+                width={140}
+                height={140}
+                className="absolute left-0 translate-x-12 bottom-0 rounded-lg w-[160px] h-[163px] object-cover"
+              /> : null
+            }
+
 
             {/* Main Pricing Card */}
             <div className="w-full max-w-xl p-6 shadow-lg bg-[var(--grey1)] z-10 rounded-[16px]">
@@ -112,22 +120,30 @@ export default function Events() {
             </div>
 
             {/* Right Top Image */}
-            <Image
-              src="/image/pricing3.png"
-              alt="group"
-              width={140}
-              height={140}
-              className="absolute right-0 -translate-x-24 top-0 rounded-lg w-[151px] h-[189px] object-cover"
-            />
+
+            {
+              isWide ? <Image
+                src="/image/pricing3.png"
+                alt="group"
+                width={140}
+                height={140}
+                className="absolute right-0 -translate-x-24 top-0 rounded-lg w-[151px] h-[189px] object-cover"
+              /> : null
+            }
+
 
             {/* Right Bottom Image */}
-            <Image
-              src="/image/pricing4.png"
-              alt="group"
-              width={140}
-              height={140}
-              className="absolute right-0 bottom-0 rounded-lg h-[147px] w-[192px] object-cover"
-            />
+
+            {
+              isWide ? <Image
+                src="/image/pricing4.png"
+                alt="group"
+                width={140}
+                height={140}
+                className="absolute right-0 bottom-0 rounded-lg h-[147px] w-[192px] object-cover"
+              /> : null
+            }
+
           </div>
 
 

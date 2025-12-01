@@ -48,7 +48,7 @@ function NavItem({ children, href }) {
 export function Navbar() {
   const pathname = usePathname()
 
-  console.log('pathname',pathname)
+  console.log('pathname', pathname)
 
   const [open, setOpen] = React.useState(false);
 
@@ -77,24 +77,24 @@ export function Navbar() {
             </div>
 
             {
-              pathname==='/features'?<ul className="flex items-center gap-10 text-black">
+              pathname === '/features' ? <ul className="hidden lg:flex items-center gap-10 text-black">
 
                 <li>
-                <Link href="/" className="text-[var(--dark4)] text-[16px] font-normal">
-                All Pages
-                </Link>
+                  <Link href="/" className="text-[var(--dark4)] text-[16px] font-normal">
+                    All Pages
+                  </Link>
                 </li>
                 <li>
-                <Link href="/features" className="text-[var(--dark4)] text-[16px] font-normal">
-                Features
-                </Link>
+                  <Link href="/features" className="text-[var(--dark4)] text-[16px] font-normal">
+                    Features
+                  </Link>
                 </li>
                 <li>
-                <Link href="/" className="text-[var(--dark4)] text-[16px] font-normal">
-                Company
-                </Link>
+                  <Link href="/" className="text-[var(--dark4)] text-[16px] font-normal">
+                    Company
+                  </Link>
                 </li>
-              </ul>:null
+              </ul> : null
             }
 
             <div className="hidden items-center gap-4 lg:flex">
@@ -103,30 +103,62 @@ export function Navbar() {
                 href=""
                 target="_blank"
               >
-                <button className="btn btn-primary">Login</button>
+                <button className="btn btn-primary" >Login</button>
               </a>
+            </div>
+
+            <div className="block lg:hidden">
+              <button className="min-w-[25px] bg-[linear-gradient(316.2deg,#7026A1_-0.4%,#DE4385_101.02%),linear-gradient(0deg,rgba(112,38,161,0.5),rgba(112,38,161,0.5))] hover:bg-[linear-gradient(30deg,#7026A1_-0.4%,#DE4385_101.02%),linear-gradient(0deg,rgba(112,38,161,0.5),rgba(112,38,161,0.5))] flex items-center justify-center w-[50px] h-[50px] rounded-[12px]" onClick={() => setOpen(!open)}>
+                <svg fill="#fff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="25px" height="25px"><path d="M 3 9 A 1.0001 1.0001 0 1 0 3 11 L 47 11 A 1.0001 1.0001 0 1 0 47 9 L 3 9 z M 3 24 A 1.0001 1.0001 0 1 0 3 26 L 47 26 A 1.0001 1.0001 0 1 0 47 24 L 3 24 z M 3 39 A 1.0001 1.0001 0 1 0 3 41 L 47 41 A 1.0001 1.0001 0 1 0 47 39 L 3 39 z" /></svg>
+              </button>
             </div>
 
           </div>
           <Collapse open={open}>
-            <div className="container mx-auto mt-3 border-t border-gray-200 px-2 pt-4">
-              <ul className="flex flex-col gap-4">
-                {NAV_MENU.map(({ name, icon: Icon, href }) => (
-                  <NavItem key={name} href={href}>
-                    <Icon className="h-5 w-5" />
-                    {name}
-                  </NavItem>
-                ))}
-              </ul>
-              <div className="mt-6 mb-4 flex items-center gap-4">
-                <button >Log in</button>
-                <a
-                  href="https://www.material-tailwind.com/blocks"
-                  target="_blank"
-                >
-                  <button color="gray">blocks</button>
-                </a>
-              </div>
+            <div className="container mx-auto mt-3 border-t border-black px-2 pt-4">
+
+              {
+                pathname === '/features' ?
+                  <ul className="flex flex-col gap-4">
+                    <li className='text-black w-full'>
+                      <Link href='/' className="w-full block px-3 py-4 rounded-[12px] hover:bg-[#cccccc]">
+                        All pages
+                      </Link>
+                    </li>
+                    <li className='text-black w-full'>
+                      <Link href='' className="w-full block px-3 py-4 rounded-[12px] hover:bg-[#cccccc]">
+                        Features
+                      </Link>
+                    </li>
+                    <li className='text-black w-full'>
+                      <Link href='/' className="w-full block px-3 py-4 rounded-[12px] hover:bg-[#cccccc]">
+                        Company
+                      </Link>
+                    </li>
+                    <li className='text-black w-full'>
+                      <Link href='' className="w-full block px-3 py-4 rounded-[12px] hover:bg-[#cccccc]">
+                        Contact Us
+                      </Link>
+                    </li>
+                    <li className='text-black w-full'>
+                      <Link href='' className="w-full block px-3 py-4 rounded-[12px] hover:bg-[#cccccc]">
+                        Login
+                      </Link>
+                    </li>
+                  </ul> : <ul className="flex flex-col gap-4">
+                    <li className='text-black w-full'>
+                      <Link href='' className="w-full block px-3 py-4 rounded-[12px] hover:bg-[#cccccc]">
+                        Contact Us
+                      </Link>
+                    </li>
+                    <li className='text-black w-full'>
+                      <Link href='' className="w-full block px-3 py-4 rounded-[12px] hover:bg-[#cccccc]">
+                        Login
+                      </Link>
+                    </li>
+                  </ul>
+              }
+
             </div>
           </Collapse>
         </MTNavbar>

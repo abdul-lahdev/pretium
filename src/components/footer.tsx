@@ -6,8 +6,8 @@ export function Footer() {
     <footer className="bg-[var(--dark4)]">
       <div className="pt-20 bg-[var(--dark4)] rounded-tl-[32px] rounded-tr-[32px] -translate-y-6">
         <div className="mx-auto">
-          <div className="lg:w-[60%] md:w-full mx-auto px-3 py-10 rounded-[16px]">
-            <div className="flex justify-between">
+          <div className="w-[90%] lg:w-[60%]  mx-auto px-3 py-10 rounded-[16px]">
+            <div className="flex flex-col md:flex-row justify-center md:justify-between gap-5">
               <div>
                 <h1 className="text-white text-[18px] font-medium">Get Started</h1>
                 <ul className="mt-4 flex flex-col gap-3">

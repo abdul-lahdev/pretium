@@ -13,6 +13,10 @@
 *{
   font-family: 'MyFont', sans-serif !important;
 }
+body{
+    overflow-x: hidden !important;
+}
+
 :root {
       --dark1:#0A140D;
       --dark2:#3C3D3C;

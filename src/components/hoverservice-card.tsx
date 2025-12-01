@@ -30,10 +30,11 @@ export default function ServiceHoverCards() {
     const [active, setActive] = useState<number>(0);  // ⭐ Default first card
 
     return (
-        <div className="flex gap-5 w-full p-10 rounded-xl">
+        <div className="flex gap-5 w-full pt-10 p-0 xl:p-10 rounded-xl">
             {cards.map((card, index) => (
                 <div
                     key={index}
+                    onClick={() => setActive(index)}
                     onMouseEnter={() => setActive(index)}
                     onMouseLeave={() => setActive(0)}  // ⭐ Hover remove → first card active
                     className={`
